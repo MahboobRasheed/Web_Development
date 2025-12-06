@@ -1,0 +1,145 @@
+/* Custom styles to achieve the dark gradient + glass cards look from screenshots */
+:root{
+  --bg-gradient: linear-gradient(135deg,#071020 0%,#052043 35%,#312148 100%);
+  --card-bg: rgba(255,255,255,0.03);
+  --card-border: rgba(255,255,255,0.06);
+  --accent: #10b981; /* green */
+  --muted: #a6b3c9;
+}
+html,body{height:100%;}
+body.app-bg{
+  background: var(--bg-gradient);
+  color: #e6eef8;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1100px}
+.glass-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border-radius: 14px;
+}
+.card-header{font-weight:700;color:#dbeafe}
+.download-btn{
+  display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.25rem;border-radius:999px;background:linear-gradient(180deg,#16a34a,#10b981);color:white;font-weight:700;border:0;box-shadow:0 10px 24px rgba(16,185,129,0.18);min-width:220px;justify-content:center;transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.feature-item{padding:1rem;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03);transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease}
+.feature-item:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.6);border-color:rgba(255,255,255,0.08)}
+.nav-link{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .6rem;border-radius:8px;transition:background .12s ease, transform .12s ease}
+.nav-link img.nav-icon{width:18px;height:18px;display:inline-block;opacity:.95}
+.nav-link:hover{background:rgba(255,255,255,0.03);transform:translateY(-2px)}
+.nav-user{display:inline-flex;align-items:center;gap:.5rem}
+.nav-user img{width:26px;height:26px;border-radius:999px}
+
+.download-btn img.inline-icon{width:18px;height:18px}
+.small-btn img.inline-icon{width:14px;height:14px}
+@media (max-width:980px){
+  .feature-grid{grid-template-columns:1fr}
+}
+.recent-list .item{background:rgba(255,255,255,0.02);padding:.6rem;border-radius:8px;margin-bottom:.5rem}
+
+/* Inputs and forms */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], select, textarea{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #e6eef8;
+}
+/* Ensure typed text and caret are always visible on dark theme across browsers */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], textarea, select{
+  color: #e6eef8 !important;
+  caret-color: #e6eef8 !important;
+  -webkit-text-fill-color: #e6eef8 !important; /* for Chrome/Safari autofill/text */
+}
+input::placeholder, textarea::placeholder{color: rgba(255,255,255,0.6) !important}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{color: rgba(255,255,255,0.6) !important}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder{color: rgba(255,255,255,0.6) !important}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{color: rgba(255,255,255,0.6) !important}
+select{appearance:auto}
+select option{background:#071730;color:#e6eef8}
+select::-ms-expand{display:block}
+label{color:var(--muted)}
+.bg-white{background:transparent}
+
+/* Dashboard specifics */
+.hero{display:grid;grid-template-columns:1fr 320px;gap:1rem;align-items:start}
+.hero-left{padding:1.6rem}
+.hero-title{font-size:1.4rem;font-weight:800;color:#e6f2ff}
+.overview-badge{background:linear-gradient(180deg,#065f46,#10b981);padding:.5rem 0.8rem;border-radius:8px;color:white;font-weight:700;box-shadow:0 6px 14px rgba(16,185,129,0.15)}
+.panel-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.panel-row{grid-template-columns:1fr}}
+
+/* Tables */
+table.report-table{width:100%;border-collapse:collapse}
+table.report-table th{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));padding:10px;border-bottom:1px solid rgba(255,255,255,0.05);color:#dbeafe}
+table.report-table td{padding:10px;border-bottom:1px solid rgba(255,255,255,0.03);color:#dbeafe}
+table.report-table tbody tr:hover{background:rgba(255,255,255,0.01)}
+
+/* Small UI tweaks */
+.muted{color:var(--muted)}
+.small-btn{padding:.4rem .7rem;border-radius:10px;background:rgba(255,255,255,0.03);color:#dbeafe}
+
+/* Tailwind utility overrides for dark theme messages */
+.bg-green-100{background:linear-gradient(180deg, rgba(16,185,129,0.10), rgba(16,185,129,0.06)) !important;color:#e6f9f0 !important}
+.bg-red-100{background:linear-gradient(180deg, rgba(239,68,68,0.12), rgba(239,68,68,0.06)) !important;color:#4b1f1f !important}
+
+/* Ensure any nested elements inside the alert also use the readable color */
+.bg-red-100, .bg-red-100 * { color: #4b1f1f !important; }
+
+/* Input/Select focus and appearance tweaks to prevent white backgrounds */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], textarea, select{
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+}
+input:focus, textarea:focus, select:focus{
+  background: rgba(255,255,255,0.03) !important;
+  border-color: rgba(16,185,129,0.9) !important;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+}
+
+/* Ensure select shows selected text clearly on all states */
+select{color: #ffffff !important}
+select option{background:#071730;color:#e6eef8}
+
+/* Chrome/Edge autofill styling: force dark background and white text when browser autofills fields */
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.02) inset !important;
+  box-shadow: 0 0 0 1000px rgba(255,255,255,0.02) inset !important;
+  -webkit-text-fill-color: #e6eef8 !important;
+}
+input:-webkit-autofill:focus, textarea:-webkit-autofill:focus, select:-webkit-autofill:focus{
+  -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.03) inset !important;
+  box-shadow: 0 0 0 1000px rgba(255,255,255,0.03) inset !important;
+}
+input[type="email"], input[type="password"]{
+  background: rgba(0,0,0,0.2) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  color: #e6eef8 !important;
+}
+input[type="email"]:focus, input[type="password"]:focus{
+  background: rgba(0,0,0,0.3) !important;
+  border-color: rgba(16,185,129,0.9) !important;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+}
+input[type="email"]:-webkit-autofill, input[type="password"]:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0 1000px rgba(0,0,0,0.2) inset !important;
+  box-shadow: 0 0 0 1000px rgba(0,0,0,0.2) inset !important;
+  -webkit-text-fill-color: #e6eef8 !important;
+}
+input[type="email"]:-webkit-autofill:focus, input[type="password"]:-webkit-autofill:focus{
+  -webkit-box-shadow: 0 0 0 1000px rgba(0,0,0,0.3) inset !important;
+  box-shadow: 0 0 0 1000px rgba(0,0,0,0.3) inset !important;
+}
+
+/* Icon sizing for feature cards and small UI icons */
+.feature-item .icon{width:28px;height:28px;display:inline-block;flex-shrink:0}
+.feature-item .icon svg{display:block}
+
+/* Adjust download button and inputs on small screens */
+@media (max-width:480px){
+  .download-btn{padding:.5rem .8rem;font-size:0.95rem}
+  .hero-left{padding:1rem}
+}
+
+
